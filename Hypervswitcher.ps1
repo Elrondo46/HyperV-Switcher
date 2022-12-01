@@ -1,5 +1,5 @@
 ﻿#Preparing components and primary variables of this script
-
+if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) { Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs; exit }
 Add-Type -assembly System.Windows.Forms
 $ServiceName = "vmms"
 $myservice = Get-Service -Name $ServiceName
